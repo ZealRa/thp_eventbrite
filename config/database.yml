@@ -79,6 +79,6 @@ test:
 #
 production:
   <<: *default
-  database: thp_eventbrite_production
+  database: linexploit-thp-project-eventbrite
   username: thp_eventbrite
   password: <%= ENV["THP_EVENTBRITE_DATABASE_PASSWORD"] %>

@@ -29,7 +29,7 @@ Feel free to contribute by submitting pull requests or reporting issues in the i
 
 ## Online Demo
 
-You can check out an online demo of the application on [Eventbrite](www.eventbrite.com).
+You can check out an online demo of the application on [Eventbrite](https://www.eventbrite.fr/).
 
 No, I'm kidding, here it's mine => [THP_Eventbrite](https://linexploit-thp-project-eventbrite.fly.dev/)
 

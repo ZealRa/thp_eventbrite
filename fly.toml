@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for linexploit-thp-project-eventbrite on 2024-05-07T12:29:01+01:00
+# fly.toml app configuration file generated for linexploit-thp-project-eventbrite-weathered-fog-5670 on 2024-05-07T12:46:56+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'linexploit-thp-project-eventbrite'
+app = 'linexploit-thp-project-eventbrite-weathered-fog-5670'
 primary_region = 'cdg'
 console_command = '/rails/bin/rails console'
 
