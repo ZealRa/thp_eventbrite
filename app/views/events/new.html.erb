@@ -1,1 +1,47 @@
-<h1>Events#NEW</h1>
+<div class="container">
+  <h1>Création d'un événement</h1>
+  <%= form_with(model: @event, url: events_path) do |form| %>
+    <% if @event.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+        <ul>
+        <% @event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-3">
+      <%= form.label :title %><br>
+      <%= form.text_field :title, class: "form-control", placeholder: "Titre de l'événement" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :description %><br>
+      <%= form.text_area :description, class: "form-control", placeholder: "Description de l'événement" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :start_date %><br>
+      <%= form.datetime_select :start_date, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :duration %><br>
+      <%= form.number_field :duration, class: "form-control", placeholder: "Durée (en minutes)" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :price %><br>
+      <%= form.number_field :price, class: "form-control", placeholder: "Prix (en euros)" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :location %><br>
+      <%= form.text_field :location, class: "form-control", placeholder: "Lieu de l'événement" %>
+    </div>
+
+    <%= form.submit "Créer l'événement", class: "btn btn-primary" %>
+  <% end %>
+</div>

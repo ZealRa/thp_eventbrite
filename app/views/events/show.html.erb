@@ -1,0 +1,17 @@
+<div class="container">
+  <h1><%= @event.title %></h1>
+  <p><%= @event.description %></p>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <p><strong>Créateur :</strong> <%= @event.admin.email %></p>
+      <p><strong>Date de début :</strong> <%= @event.start_date.strftime("%d %B %Y %H:%M") %></p>
+
+      <p><strong>Lieu :</strong> <%= @event.location %></p>
+      <p><strong>Prix :</strong> <%= number_to_currency(@event.price, precision: 2) %></p>
+    </div>
+    <div class="col-md-6">
+      <p><strong>Inscrits :</strong> <%= @event.participants.count %></p>
+    </div>
+  </div>
+</div>

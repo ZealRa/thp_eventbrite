@@ -17,41 +17,46 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
   <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand">😎 EventBrite</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="<%= root_path %>">Accueil <span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/events/new">Créer un événement</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ms-auto"> <!-- Ajout de ms-auto ici -->
-        <% if user_signed_in? && current_user %>
-          <li class="nav-item">
-            <a class="nav-link" href="<%= user_path(current_user) %>">Mon profil</a>
-          </li>
-          <li class="nav-item">
-      <a class="nav-link" href="<%= destroy_user_session_path %>" data-method="delete" data-turbo-method="delete">Se déconnecter</a>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <a class="nav-link" href="<%= new_user_registration_path %>">S'inscrire</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<%= new_user_session_path %>">Se connecter</a>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand">😎 EventBrite</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="<%= root_path %>">Accueil <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/events/new">Créer un événement</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto"> <!-- Ajout de ms-auto ici -->
+            <% if current_user %>
+              <li class="nav-item">
+                <a class="nav-link" href="<%= user_path(current_user) %>">Mon profil</a>
+              </li>
+              <li class="nav-item">
+                <!-- Formulaire de déconnexion -->
+                <%= form_tag(destroy_user_session_path, method: :delete) do %>
+                  <%= button_tag(type: 'submit', class: 'nav-link', style: 'background: none; border: none; cursor: pointer;') do %>
+                    Se déconnecter
+                  <% end %>
+                <% end %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <a class="nav-link" href="<%= new_user_registration_path %>">S'inscrire</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<%= new_user_session_path %>">Se connecter</a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
 
     <p class="notice"><%= notice %></p>

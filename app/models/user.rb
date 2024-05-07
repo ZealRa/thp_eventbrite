@@ -13,7 +13,7 @@ class User < ApplicationRecord
   # validates :last_name, presence: true
 
   has_many :attendances, dependent: :destroy
-  has_many :events, through: :attendances
+  has_many :events, through: :attendances, foreign_key: "admin_id"
 
   private
 

@@ -95,6 +95,14 @@ Rails.application.configure do
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
+# Active l'asset pipeline
+config.assets.enabled = true
+
+# config/environments/production.rb
+config.assets.compile = false
+config.assets.digest = true
+config.assets.version = '1.0'
+
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
   address: '127.0.0.1',
