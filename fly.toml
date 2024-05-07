@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for linexploit-thp-eventbrite-divine-shadow-5676 on 2024-05-06T17:04:07+01:00
+# fly.toml app configuration file generated for linexploit-thp-project-eventbrite on 2024-05-07T12:29:01+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'linexploit-thp-eventbrite-divine-shadow-5676'
+app = 'linexploit-thp-project-eventbrite'
 primary_region = 'cdg'
 console_command = '/rails/bin/rails console'
 

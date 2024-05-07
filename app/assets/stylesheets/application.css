@@ -16,3 +16,39 @@
 
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+.jumbotron {
+  background-color: #007bff; /* Bleu primaire */
+  color: white;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 0; /* Supprimer les coins arrondis */
+}
+
+/* Style pour les titres des événements */
+.event-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Style pour les détails des événements */
+.event-details {
+  font-size: 1rem;
+  color: #6c757d; /* Gris moyen */
+  margin-bottom: 1rem;
+}
+
+/* Style pour les boutons */
+.btn-custom {
+  background-color: #007bff; /* Bleu primaire */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s;
+}
+
+.btn-custom:hover {
+  background-color: #0056b3; /* Bleu primaire plus foncé au survol */
+}
