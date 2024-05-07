@@ -94,17 +94,16 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
-end
-
 
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
-  tls:                  'true',
-  address:              'smtp.gmail.com',
-  port:                 587,
-  domain:               'gmail.com',
-  user_name:            ENV['GMAIL_LOGIN'],
-  password:             ENV['GMAIL_PWD'],
-  authentication:       'plain',
-  enable_starttls_auto: true
+  address: '127.0.0.1',
+  port: 1025, # Port utilisé par ProtonMail Bridge
+  authentication: :plain,
+  user_name: ENV['PROTONMAIL_EMAIL'], # Votre adresse e-mail ProtonMail
+  password: ENV['PROTONMAIL_BRIDGE_PASSWORD'] # Mot de passe du pont ProtonMail
 }
+
+config.action_mailer.default_url_options = { host: 'linexploit-thp-eventbrite-falling-dream-3715.fly.dev/' }
+
+end

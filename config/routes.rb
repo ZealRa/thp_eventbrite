@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  root 'pages#home'
+  root 'events#index'
+  get 'static_pages/index'
+  get 'static_pages/secret'
+
+  devise_for :users
 
   # Routes for users
-  resources :users, only: [:index, :show, :new, :create]
+  resources :user, only: [:index, :show, :new, :create]
 
   # Routes for events
   resources :events do
