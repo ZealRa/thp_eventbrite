@@ -1,2 +1,23 @@
-<h1>Attendance#new</h1>
-<p>Find me in app/views/attendance/new.html.erb</p>
+<h1>Paiement de l'événement : <%= @event.title %></h1>
+
+<% if flash[:alert].present? %>
+  <div class="alert alert-danger" role="alert">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<%= form_tag event_attendance_index_path(@event) do %>
+  <article>
+    <label class="amount">
+<span>Montant à payer : <%= number_to_currency(@stripe_amount / 100.0, unit: '') %></span>
+    </label>
+  </article>
+  
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-description="Inscription à l'événement"
+    data-amount="<%= @stripe_amount %>"
+    data-currency="eur"
+    data-locale="auto">
+  </script>
+<% end %>

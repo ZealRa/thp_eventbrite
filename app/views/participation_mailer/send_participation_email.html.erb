@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <p>Bonjour <%= @user.first_name %> <%= @user.last_name %>,</p>
+  <p>Vous êtes maintenant inscrit à l'événement : <%= @event.title %>.</p>
+  <p>Date et heure : <%= @event.start_date %></p>
+  <p>À noter : <%= @event.description %></p>
+  <p>À l'adresse : <%= @event.location %></p>
+  <p>Vous recevrez plus d'informations prochainement.</p>
+  <p>Cordialement,</p>
+  <p>L'équipe de l'événement</p>
+</body>
+</html>

@@ -34,3 +34,10 @@
     </div>
   </div>
 </div>
+
+
+<%= link_to "Modifier l'événement", edit_event_path(@event) %>
+<%= form_tag(event_path(@event), method: :delete) do %>
+                  <%= button_tag(type: 'submit', class: 'nav-link', style: 'background: none; border: none; cursor: pointer;') do %>
+                    Supprimer l'événement
+                  <% end %>

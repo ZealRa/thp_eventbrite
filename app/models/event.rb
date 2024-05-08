@@ -6,7 +6,13 @@ class Event < ApplicationRecord
   validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 1000 }
   validates :location, presence: true
 
+  belongs_to :user
   belongs_to :admin, class_name: "User",  optional: true, foreign_key: "admin_id"
   has_many :attendances
-  has_many :participants, through: :attendances, source: :user
+  has_many :participants, class_name: "User", through: :attendances, source: :user
+
+  def is_free?
+    price == 0
+  end
+
 end

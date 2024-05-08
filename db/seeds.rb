@@ -1,13 +1,14 @@
 require 'faker'
 
-User.destroy_all
-Event.destroy_all
-Attendance.destroy_all
+# User.destroy_all
+# Event.destroy_all
+# Attendance.destroy_all
 
 # Création de quelques utilisateurs avec des adresses @yopmail.com
 5.times do
   user = User.create!(
     email: Faker::Internet.email(domain: 'yopmail.com'),
+    password: Faker::Internet.password(min_length: 6),
     encrypted_password: Faker::Internet.password,
     description: Faker::Lorem.paragraph(sentence_count: 2),
     first_name: Faker::Name.first_name,
@@ -17,6 +18,7 @@ Attendance.destroy_all
   # Création de quelques événements pour chaque utilisateur
   3.times do
     event = Event.create!(
+      user: User.all.sample
       admin: user, # Utilisateur associé à l'événement
       start_date: Faker::Time.forward(days: 30, period: :morning),
       duration: rand(1..6) * 5, # Durée aléatoire en multiples de 5

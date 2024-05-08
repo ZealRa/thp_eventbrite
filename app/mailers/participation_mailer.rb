@@ -1,7 +1,8 @@
 class ParticipationMailer < ApplicationMailer
-  def participation_email(event_creator, participant)
-    @event_creator = event_creator
-    @participant = participant
-    mail(to: @event_creator.email, subject: 'Nouvelle participation à votre événement !')
+  def send_participation_email(user, event)
+    @user = user
+    @event = event
+
+    mail(to: @user.email, subject: 'Participation Confirmation')
   end
 end
